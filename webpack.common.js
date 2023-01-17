@@ -13,7 +13,7 @@ const pages = router.map((config) => ({
   component: fs
     .readFileSync(`${paths.pages}${config.source}/index.ts`)
     .toString()
-    .match(/@customElement\("([^"]+)"\)/)[1],
+    .match(/@customElement\(["']([^"]+)["']\)/)[1],
 }));
 
 for (let i = 0; i < pages.length; i++)

@@ -1,0 +1,53 @@
+// Do not @import or @use global styles (except for theming)
+// To avoid css duplication (it's not tree-shakable)
+
+:host {
+  position: fixed;
+  bottom: 0;
+  height: 3rem;
+  transform: translateX(calc(50vw - 50%));
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+    background-color: var(--nav-background-color);
+    box-shadow: 0px 0px 2px black;
+  }
+
+  @media screen and (max-device-width: 480px) {
+    width: 100%;
+
+    ul {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    cursor: pointer;
+    text-emphasis: filled var(--nav-background-color);
+    display: block;
+    color: var(--nav-foreground-color);
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+
+  li a.current {
+    text-emphasis: filled red;
+  }
+
+  li a:hover {
+    text-emphasis: filled green;
+  }
+}

@@ -1,16 +1,24 @@
 import { css, html, LitElement, TemplateResult } from "lit";
 import { property, customElement } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 import { componentStyles } from "~src/global";
 import scopedStyles from "./styles.module.scss";
 
-@customElement("hello-text")
-export default class HelloText extends LitElement {
-  @property({ type: String }) sub!: string;
+@customElement("bottom-nav")
+export default class BottomNav extends LitElement {
+  @property({ type: String }) current = "";
 
   render(): TemplateResult {
       return html`
-      <h4>Hello, <slot></slot></h4>
-      <p>${this.sub}</p>
+      <ul>
+        <li>
+          <a href="/" class=${classMap({ current: this.current === "home" })}>
+            Home
+          </a>
+        </li>
+        <li><a>Page</a></li>
+        <li><a>Page</a></li>
+      </ul>
     `;
   }
 
