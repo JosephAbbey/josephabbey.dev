@@ -1,33 +1,37 @@
-import { css, html, LitElement, TemplateResult } from "lit";
-import { customElement, state } from "lit/decorators.js";
-import { pageStyles } from "~src/global";
-import { getUsername } from "~services/name-service";
-import scopedStyles from "./styles.module.scss";
+import { css, html, LitElement, TemplateResult } from 'lit';
+import { customElement, state } from 'lit/decorators.js';
+import { pageStyles } from '~src/global';
+import { getUsername } from '~services/name-service';
+import scopedStyles from './styles.module.scss';
 
-import("~components/hello-text").then(f => f.default());
+import('~components/hello-text').then((f) => f.default());
 
-@customElement("test-page")
+@customElement('test-page')
 export default class TestPage extends LitElement {
-    @state() username: string | null = null;
+  @state() username: string | null = null;
 
-    render(): TemplateResult {
-        return html`
-            <div class="container">
-                <hello-text sub="Welcome User">${this.username}</hello-text>
-            </div>
-        `;
-    }
+  render(): TemplateResult {
+    return html`
+      <div class="container">
+        <hello-text sub="Welcome User">${this.username}</hello-text>
+      </div>
+    `;
+  }
 
-    connectedCallback(): void {
-        super.connectedCallback();
-        this.username = getUsername();
-        // eslint-disable-next-line no-console
-        if (!PRODUCTION) console.log("Everything is working!");
-    }
+  connectedCallback(): void {
+    super.connectedCallback();
+    this.username = getUsername();
+    // eslint-disable-next-line no-console
+    if (!PRODUCTION) console.log('Everything is working!');
+  }
 
-    // Styles can either be in this file (only css)
-    // or imported from another file (scss in this case)
-    static styles = [...pageStyles, scopedStyles as never, css`
-        // More styles here
-    `];
+  // Styles can either be in this file (only css)
+  // or imported from another file (scss in this case)
+  static styles = [
+    ...pageStyles,
+    scopedStyles as never,
+    css`
+      // More styles here
+    `,
+  ];
 }

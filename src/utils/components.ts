@@ -9,8 +9,11 @@
 // import("~components/tag-name").then(f => f.default());
 
 // eslint-disable-next-line import/prefer-default-export
-export function defineComponent(tag: string, c: CustomElementConstructor): void {
-    if (customElements.get(tag) === undefined) customElements.define(tag, c);
+export function defineComponent(
+  tag: string,
+  c: CustomElementConstructor
+): void {
+  if (customElements.get(tag) === undefined) customElements.define(tag, c);
 }
 
 // NOTE:
