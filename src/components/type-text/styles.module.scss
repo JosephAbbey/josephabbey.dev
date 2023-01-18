@@ -7,7 +7,11 @@
     --length: 13;
     margin: 0 auto;
     border-right: 2px solid var(--content-foreground-color);
-    font-size: 5em;
+    @media only screen and (max-width: 500px) {
+      font-size: 2rem;
+      line-height: 2em;
+    }
+    font-size: 5rem;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
