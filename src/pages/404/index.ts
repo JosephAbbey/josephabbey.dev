@@ -2,30 +2,13 @@ import { css, html, LitElement, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { pageStyles } from '~src/global';
 import scopedStyles from './styles.module.scss';
-import asmCard from './asmCard.txt';
-import appIdeasCard from './appIdeasCard.txt';
 
 import('~components/bottom-nav');
-import('~components/type-text');
-import('~components/project-card');
 
-@customElement('index-page')
-export default class IndexPage extends LitElement {
+@customElement('not-found-page')
+export default class NotFoundPage extends LitElement {
   render(): TemplateResult {
-    return html`
-      <bottom-nav current="home"></bottom-nav>
-      <type-text></type-text>
-      <div class="projects">
-        <project-card
-          content="${asmCard}"
-          href="/customasm.html"
-        ></project-card>
-        <project-card
-          content="${appIdeasCard}"
-          href="//app-ideas.josephabbey.dev"
-        ></project-card>
-      </div>
-    `;
+    return html`<bottom-nav></bottom-nav>`;
   }
 
   connectedCallback(): void {

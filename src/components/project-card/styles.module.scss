@@ -1,0 +1,10 @@
+// Do not @import or @use global styles (except for theming)
+// To avoid css duplication (it's not tree-shakable)
+
+:host pre {
+  display: inline-block;
+  border-radius: 0.5em;
+  background-color: var(--nav-background-color);
+  padding: 1em;
+  color: var(--content-foreground-color);
+}

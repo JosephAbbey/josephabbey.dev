@@ -20,4 +20,9 @@ module.exports = [
     title: 'Joseph Abbey Personal Portfolio',
     outputPath: '/',
   },
+  {
+    source: '/404',
+    title: 'Error 404',
+    outputPath: '/404.html',
+  },
 ];

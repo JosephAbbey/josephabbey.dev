@@ -1,25 +1,12 @@
 import { css, html, LitElement, TemplateResult } from 'lit';
 import { property, customElement } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
 import { componentStyles } from '~src/global';
 import scopedStyles from './styles.module.scss';
 
-@customElement('bottom-nav')
-export default class BottomNav extends LitElement {
-  @property() current: string = '';
-
+@customElement('type-text')
+export default class TypeText extends LitElement {
   render(): TemplateResult {
-    return html`
-      <ul>
-        <li>
-          <a href="/" class=${classMap({ current: this.current === 'home' })}>
-            Home
-          </a>
-        </li>
-        <li><a>Page</a></li>
-        <li><a>Page</a></li>
-      </ul>
-    `;
+    return html`<p>Joseph Abbey!</p>`;
   }
 
   // Styles can either be in this file (only css)

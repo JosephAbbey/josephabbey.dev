@@ -1,5 +1,15 @@
-@import "./reset";
+@import './reset';
 
 :host {
-  box-sizing: border-box;
+  --content-background-color: rgb(230, 230, 230);
+  --content-foreground-color: rgb(25, 25, 25);
+  --nav-background-color: rgb(216, 216, 216);
+  --nav-foreground-color: black;
+
+  @media (prefers-color-scheme: dark) {
+    --content-background-color: rgb(25, 25, 25);
+    --content-foreground-color: rgb(230, 230, 230);
+    --nav-background-color: rgb(20, 20, 20);
+    --nav-foreground-color: white;
+  }
 }

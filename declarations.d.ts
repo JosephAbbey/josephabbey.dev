@@ -11,6 +11,11 @@ declare module '*.scss' {
   export default content;
 }
 
+declare module '*.txt' {
+  const content: string;
+  export default content;
+}
+
 // This part allows you to reference images from scripts
 
 declare module '*.png';

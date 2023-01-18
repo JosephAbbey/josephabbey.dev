@@ -1,0 +1,11 @@
+
+         /‾‾\
+        │  \ │
+         \()/
+          ▀▀
+       App Ideas
+    A website for a
+   collection of app
+   ideas for varying
+  tiers of experience
+ written with react.js 

@@ -1,0 +1,39 @@
+// Do not @import or @use global styles (except for theming)
+// To avoid css duplication (it's not tree-shakable)
+
+:host {
+  color: var(--content-foreground-color);
+  p {
+    --length: 13;
+    margin: 0 auto;
+    border-right: 2px solid var(--content-foreground-color);
+    font-size: 5em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+
+    animation: typewriter calc(var(--length) / 11 * 1s) steps(var(--length)) 1s
+        1 normal both,
+      blinkTextCursor 500ms steps(var(--length)) infinite normal;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc(var(--length) * 1ch + 4px);
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: var(--content-foreground-color);
+  }
+  50% {
+    border-right-color: transparent;
+  }
+  to {
+    border-right-color: var(--content-foreground-color);
+  }
+}
