@@ -1,8 +1,9 @@
 // Applied to all pages (not components)
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
 
 :host {
   width: 100%;
   min-height: 100%;
-  font-family: monospace;
+  font-family: 'Source Code Pro', monospace;
   background-color: var(--content-background-color);
 }
