@@ -1,5 +1,5 @@
 import { css, html, LitElement, TemplateResult } from 'lit';
-import { property, customElement } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import { componentStyles } from '~src/global';
 import scopedStyles from './styles.module.scss';
 
