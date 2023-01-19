@@ -15,6 +15,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
+        cache: 'npm'
 
     - name: Build
       run: |
@@ -50,3 +51,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        with:
+          timeout: 1800000
