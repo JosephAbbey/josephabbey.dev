@@ -22,14 +22,14 @@ module.exports = {
     wc: { elementBaseClasses: ['LitElement'] },
   },
   rules: {
-    quotes: ['error', 'double'],
+    quotes: ['error', 'single'],
     'class-methods-use-this': [
       'error',
       { exceptMethods: ['render', 'connectedCallback'] },
     ],
     'object-curly-newline': ['error', { ImportDeclaration: 'never' }],
     'no-return-assign': ['error', 'except-parens'],
-    indent: ['error', 4, { FunctionDeclaration: { parameters: 'first' } }],
+    indent: ['error', 2, { FunctionDeclaration: { parameters: 'first' } }],
     '@typescript-eslint/type-annotation-spacing': [
       'error',
       { before: false, after: true },
@@ -43,7 +43,7 @@ module.exports = {
     '@typescript-eslint/no-inferrable-types': 'off',
     'import/no-duplicates': 'off',
     curly: ['error', 'multi'],
-    'arrow-parens': ['error', 'as-needed'],
+    'arrow-parens': ['error', 'always'],
     'no-extend-native': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     radix: 'off',

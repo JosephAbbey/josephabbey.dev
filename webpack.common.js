@@ -40,7 +40,9 @@ const config = {
             description: page.description,
             component: `<${page.component}></${page.component}>`,
           },
-          filename: `.${page.outputPath}/index.html`,
+          filename: page.file
+            ? `.${page.outputPath}`
+            : `.${page.outputPath}/index.html`,
           chunks: [page.keyName],
         })
     ),

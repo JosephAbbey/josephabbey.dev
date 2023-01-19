@@ -23,6 +23,7 @@ module.exports = [
   {
     source: '/404',
     title: 'Error 404',
-    outputPath: '/404/',
+    outputPath: '/404.html',
+    file: true,
   },
 ];

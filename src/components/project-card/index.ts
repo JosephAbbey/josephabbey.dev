@@ -13,13 +13,13 @@ export default class ProjectCard extends LitElement {
     return html`<a href="${this.href}">
       <pre>
 ${guard([this.content], () => {
-          const lines = this.content.replace(/\r/g, '').split('\n');
-          const l = Math.max(...lines.map((a) => a.length));
-          const c = `+${'-'.repeat(l + 2)}+`;
-          return `${c}\n${lines
-            .map((line) => `| ${line.padEnd(l, ' ')} |`)
-            .join('\n')}\n${c}`;
-        })}</pre
+    const lines = this.content.replace(/\r/g, '').split('\n');
+    const l = Math.max(...lines.map((a) => a.length));
+    const c = `+${'-'.repeat(l + 2)}+`;
+    return `${c}\n${lines
+      .map((line) => `| ${line.padEnd(l, ' ')} |`)
+      .join('\n')}\n${c}`;
+  })}</pre
       >
     </a>`;
   }
