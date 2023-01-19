@@ -11,7 +11,7 @@ declare module '*.scss' {
   export default content;
 }
 
-declare module '*.txt' {
+declare module '*.card' {
   const content: string;
   export default content;
 }

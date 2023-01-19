@@ -2,8 +2,8 @@ import { css, html, LitElement, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { pageStyles } from '~src/global';
 import scopedStyles from './styles.module.scss';
-import asmCard from './asmCard.txt';
-import appIdeasCard from './appIdeasCard.txt';
+import asmCard from './asm.card';
+import appIdeasCard from './app-ideas.card';
 
 import('~components/bottom-nav');
 import('~components/type-text');
@@ -18,12 +18,10 @@ export default class IndexPage extends LitElement {
       <div class="projects">
         <project-card
           content="${asmCard}"
-          href="/customasm.html"
-        ></project-card>
+          href="/customasm.html"></project-card>
         <project-card
           content="${appIdeasCard}"
-          href="//app-ideas.josephabbey.dev"
-        ></project-card>
+          href="//app-ideas.josephabbey.dev"></project-card>
       </div>
     `;
   }

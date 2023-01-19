@@ -92,8 +92,8 @@ const config = {
         type: 'asset/resource',
       },
       {
-        test: /\.txt$/,
-        use: 'raw-loader',
+        test: /\.card$/,
+        use: ['raw-loader', './webpack/card-loader.js'],
       },
     ],
   },
