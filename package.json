@@ -27,7 +27,7 @@
     "esbuild-loader": "^2.21.0",
     "eslint": "^8.34.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-lit": "^1.6.1",
     "eslint-plugin-wc": "^1.4.0",
