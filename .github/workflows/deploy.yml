@@ -21,7 +21,7 @@ jobs:
         node-version: 16.x
         cache: 'pnpm'
 
-    - uses: pnpm/action-setup
+    - uses: pnpm/action-setup@v2
       with:
         version: latest
 
