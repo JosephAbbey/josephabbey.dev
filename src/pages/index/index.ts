@@ -4,6 +4,8 @@ import { pageStyles } from '~src/global';
 import scopedStyles from './styles.module.scss';
 import asmCard from './asm.card';
 import appIdeasCard from './app-ideas.card';
+import qrCard from './qr.card';
+import jatexCard from './jatex.card';
 
 import('~components/bottom-nav');
 import('~components/type-text');
@@ -22,6 +24,12 @@ export default class IndexPage extends LitElement {
         <project-card
           content="${appIdeasCard}"
           href="//app-ideas.josephabbey.dev"></project-card>
+        <project-card
+          content="${qrCard}"
+          href="//qrcodesmakeyou.josephabbey.dev"></project-card>
+        <project-card
+          content="${jatexCard}"
+          href="//jatex.josephabbey.dev"></project-card>
       </div>
     `;
   }
