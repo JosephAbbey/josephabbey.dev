@@ -21,10 +21,15 @@ jobs:
         node-version: 16.x
         cache: 'pnpm'
 
+    - uses: pnpm/action-setup
+      with:
+        version: latest
+
+    - name: Install
+      run: pnpm install
+
     - name: Build
-      run: |
-        pnpm install
-        pnpm build
+      run: pnpm build
 
     - name: Upload pages artifact
       uses: actions/upload-pages-artifact@v0
