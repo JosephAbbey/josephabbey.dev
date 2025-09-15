@@ -2,14 +2,11 @@
   "servers": {
     "shadcn": {
       "command": "npx",
-      "args": [
-        "shadcn@latest",
-        "mcp"
-      ]
+      "args": ["shadcn@latest", "mcp"]
     },
-		"Astro docs": {
-			"url": "https://mcp.docs.astro.build/mcp",
-			"type": "http"
-		}
+    "Astro docs": {
+      "url": "https://mcp.docs.astro.build/mcp",
+      "type": "http"
+    }
   }
 }
