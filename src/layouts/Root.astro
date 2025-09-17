@@ -4,6 +4,9 @@ import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/Footer.astro";
 import NavBar from "@/components/NavBar";
 import { ClientRouter } from "astro:transitions";
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+
 interface Props {
   title: string;
   description: string;
@@ -14,6 +17,8 @@ interface Props {
   <head>
     <BaseHead title={Astro.props.title} description={Astro.props.description} />
     <ClientRouter fallback="swap" />
+    <Analytics />
+    <SpeedInsights />
   </head>
   <body class="m-2">
     <header

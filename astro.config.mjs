@@ -17,6 +17,8 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
 import { ExternalLink } from "lucide-react";
 
+import vercel from "@astrojs/vercel";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.josephabbey.dev",
@@ -59,7 +61,10 @@ export default defineConfig({
   },
 
   integrations: [mdx(), sitemap(), react()],
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  adapter: vercel(),
 });
