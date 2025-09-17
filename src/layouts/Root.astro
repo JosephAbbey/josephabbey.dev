@@ -10,12 +10,17 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 interface Props {
   title: string;
   description: string;
+  image?: ImageMetadata;
 }
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={Astro.props.title} description={Astro.props.description} />
+    <BaseHead
+      title={Astro.props.title}
+      description={Astro.props.description}
+      image={Astro.props.image}
+    />
     <ClientRouter fallback="swap" />
     <Analytics />
     <SpeedInsights />
