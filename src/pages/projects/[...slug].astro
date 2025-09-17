@@ -1,0 +1,110 @@
+---
+import {
+  type CollectionEntry,
+  getCollection,
+  getEntries,
+  render,
+} from "astro:content";
+import Root from "@/layouts/Root.astro";
+import ToC from "@/components/ToC";
+import FormattedDate from "@/components/FormattedDate.astro";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLinkIcon } from "lucide-react";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: project,
+  }));
+}
+type Props = CollectionEntry<"projects">;
+
+const project = Astro.props;
+const { Content, headings } = await render(project);
+
+const articles =
+  project.data.articles && (await getEntries(project.data.articles));
+---
+
+<Root
+  title={`Joseph Abbey - ${project.data.title}`}
+  description={project.data.description}
+>
+  <div class="markdown mx-auto max-w-3xl">
+    <h1>
+      {project.data.title}
+    </h1>
+
+    {/* Badge group for repo, site */}
+    <div class="mb-4 flex flex-row-reverse flex-wrap gap-2">
+      {
+        project.data.repository && (
+          <a
+            href={project.data.repository}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-md-no-style
+          >
+            <Badge variant="secondary">
+              Repository
+              <ExternalLinkIcon />
+            </Badge>
+          </a>
+        )
+      }
+      {
+        project.data.site && (
+          <a
+            href={project.data.site}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-md-no-style
+          >
+            <Badge variant="secondary">
+              Site
+              <ExternalLinkIcon />
+            </Badge>
+          </a>
+        )
+      }
+    </div>
+
+    {
+      articles && articles.length > 0 && (
+        <div class="my-4 max-h-80 overflow-y-auto rounded border-2 p-4">
+          <h4 class="my-0! text-lg font-bold">Articles</h4>
+          <ul class="list-disc pl-5">
+            {articles.map((article) => (
+              <li class="leading-0">
+                <span class="text-muted-foreground text-xs font-bold">
+                  {article.data.source} -{" "}
+                  <FormattedDate date={article.data.pubDate} />
+                </span>
+                <br />
+                <a
+                  href={article.data.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 hover:underline"
+                >
+                  {article.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+
+    <!-- <ToC client:load headings={headings} /> -->
+
+    {
+      project.data.pdf !== undefined ? (
+        <iframe src={project.data.pdf} class="mt-10 h-[80vh] w-full" />
+      ) : (
+        <Content />
+      )
+    }
+  </div>
+</Root>

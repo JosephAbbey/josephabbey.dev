@@ -1,6 +1,9 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import BlogPost from "../../layouts/BlogPost.astro";
+import Root from "@/layouts/Root.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import { Image } from "astro:assets";
+import ToC from "@/components/ToC";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -12,9 +15,48 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
-<BlogPost {...post.data}>
-  <Content />
-</BlogPost>
+<Root
+  title={`Joseph Abbey - ${post.data.title}`}
+  description={post.data.description}
+>
+  <!-- {
+    post.data.cover && (
+      <div class='mx-4'>
+        <Image
+          src={post.data.cover}
+          alt='Cover Image'
+          class='max-h-[50svh] w-full rounded-3xl object-cover'
+          transition:name={`${post.id} image`}
+        />
+      </div>
+    )
+  } -->
+  <div class="mx-auto max-w-3xl">
+    {
+      post.data.cover && (
+        <Image
+          src={post.data.cover}
+          alt="Cover Image"
+          class="w-full rounded-3xl object-cover"
+          transition:name={`${post.id} image`}
+        />
+      )
+    }
+    <div class="markdown mt-10">
+      <h1 transition:name={`${post.id} title`}>
+        {post.data.title}
+      </h1>
+      <FormattedDate
+        class="text-muted-foreground text-sm"
+        date={post.data.pubDate}
+      />
+
+      <!-- <ToC client:load headings={headings} /> -->
+
+      <Content />
+    </div>
+  </div>
+</Root>

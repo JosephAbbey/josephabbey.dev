@@ -1,14 +1,8 @@
 ---
-import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
-import Layout from "../layouts/BlogPost.astro";
+import Root from "@/layouts/Root.astro";
 ---
 
-<Layout
-  title="About Me"
-  description="Lorem ipsum dolor sit amet"
-  pubDate={new Date("August 08 2021")}
-  heroImage={AboutHeroImage}
->
+<Root title="About Me" description="Lorem ipsum dolor sit amet">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo
@@ -70,4 +64,4 @@ import Layout from "../layouts/BlogPost.astro";
     pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique
     magna.
   </p>
-</Layout>
+</Root>
