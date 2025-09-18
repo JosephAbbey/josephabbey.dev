@@ -6,6 +6,7 @@ import { ScrollArea } from "./ui/scroll-area";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 export default function ProjectCard({
+  id,
   title,
   description,
   languages,
@@ -13,6 +14,7 @@ export default function ProjectCard({
   icon,
   repository,
 }: {
+  id: string;
   title: string;
   description: string;
   languages: string[];
@@ -21,10 +23,13 @@ export default function ProjectCard({
   repository: string | null | undefined;
 }) {
   return (
-    <Card className="hover:border-primary relative flex aspect-square w-60 justify-center rounded-xl border-2 p-2 transition-colors">
+    <Card className="hover:border-primary relative flex aspect-square min-w-60 justify-center rounded-xl border-2 p-2 transition-colors">
       <HoverCard>
         <HoverCardTrigger asChild>
-          <h3 className="scroll-m-20 overflow-hidden text-center text-2xl font-semibold tracking-tight overflow-ellipsis">
+          <h3
+            style={{ viewTransitionName: `${id} title` }}
+            className="scroll-m-20 overflow-hidden text-center text-2xl font-semibold tracking-tight overflow-ellipsis"
+          >
             {title}
           </h3>
         </HoverCardTrigger>

@@ -174,4 +174,19 @@
       margin-left: 0.25em;
     }
   }
+
+  /* auto link for headings */
+  .icon.icon-link {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      left: -1em;
+      content: "#";
+      color: var(--color-primary);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

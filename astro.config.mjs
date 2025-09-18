@@ -13,9 +13,9 @@ import rehypeKatex from "rehype-katex";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 // import remarkEmbedder from "@remark-embedder/core";
 // import oembedTransformer from "@remark-embedder/transformer-oembed";
+import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
-import { ExternalLink } from "lucide-react";
 
 import vercel from "@astrojs/vercel";
 
@@ -39,7 +39,8 @@ export default defineConfig({
     rehypePlugins: [
       rehypeAccessibleEmojis,
       rehypeKatex,
-      [rehypeAutolinkHeadings, { behavior: "append" }],
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: "prepend" }],
       [
         rehypeExternalLinks,
         {

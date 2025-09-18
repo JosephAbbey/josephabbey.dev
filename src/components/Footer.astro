@@ -1,40 +1,41 @@
 ---
-import { GitHubDark, LinkedIn } from "@ridemountainpig/svgl-react";
+import {
+  GitHubDark,
+  Gmail,
+  LinkedIn,
+  Twitter,
+} from "@ridemountainpig/svgl-react";
 const today = new Date();
 ---
 
-<footer>
+<footer
+  class="mt-8 mb-16 flex flex-col items-center justify-between gap-8 border-t pt-4 text-center text-sm"
+>
   &copy; {today.getFullYear()} Joseph Abbey. All rights reserved.
-  <div class="social-links">
-    <a href="https://github.com/josephabbey" target="_blank">
+  <div class="flex gap-2">
+    <a href="https://github.com/josephabbey" target="_blank" title="GitHub">
       <span class="sr-only">Go to Joseph Abbey's GitHub</span>
-      <GitHubDark className="h-4" />
+      <GitHubDark className="h-8" />
     </a>
-    <!-- LinkedIn, Twitter -->
-    <a href="https://www.linkedin.com/in/josephabbey" target="_blank">
+    <a
+      href="https://www.linkedin.com/in/josephabbey"
+      target="_blank"
+      title="LinkedIn"
+    >
       <span class="sr-only">Go to Joseph Abbey's LinkedIn</span>
-      <LinkedIn className="h-4" />
+      <LinkedIn className="h-8" />
+    </a>
+    <a
+      href="https://www.twitter.com/__josephabbey"
+      target="_blank"
+      title="Twitter"
+    >
+      <span class="sr-only">Go to Joseph Abbey's Twitter</span>
+      <Twitter className="h-8" />
+    </a>
+    <a href="mailto:me@josephabbey.dev" target="_blank" title="Email">
+      <span class="sr-only">Send an email to Joseph Abbey</span>
+      <Gmail className="h-8" />
     </a>
   </div>
 </footer>
-<style>
-  footer {
-    padding: 2em 1em 6em 1em;
-    background: linear-gradient(var(--gray-gradient)) no-repeat;
-    color: rgb(var(--gray));
-    text-align: center;
-  }
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-  }
-  .social-links a {
-    text-decoration: none;
-    color: rgb(var(--gray));
-  }
-  .social-links a:hover {
-    color: rgb(var(--gray-dark));
-  }
-</style>

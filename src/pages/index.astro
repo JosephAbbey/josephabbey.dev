@@ -18,12 +18,13 @@ const projects = await getCollection("projects");
     />
   </div>
   <div class="mt-20 flex justify-center">
-    <div class="grid w-max grid-cols-3 gap-4">
+    <div class="grid w-max grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
       {
         projects.map((project) => (
           <a href={`/projects/${project.id}`} data-astro-prefetch>
             <ProjectCard
               client:visible
+              id={project.id}
               title={project.data.title}
               description={project.data.description}
               languages={project.data.languages}
