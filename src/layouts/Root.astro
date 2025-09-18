@@ -29,11 +29,11 @@ interface Props {
     <header
       transition:name="header"
       transition:persist
-      class="flex justify-start"
+      class="mb-4 flex justify-start"
     >
       <NavBar client:load />
     </header>
-    <main transition:name="main" class="mt-16">
+    <main transition:name="main">
       <slot />
     </main>
     <Footer transition:name="footer" transition:persist />
