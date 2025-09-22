@@ -4,6 +4,7 @@ import Root from "@/layouts/Root.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import ToC from "@/components/ToC";
+import Comments from "@/components/Comments.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -35,7 +36,7 @@ const { Content, headings } = await render(post);
       </div>
     )
   } -->
-  <div class="mx-auto max-w-3xl">
+  <div class="mx-auto max-w-3xl px-2">
     {
       post.data.cover && (
         <Image
@@ -46,6 +47,7 @@ const { Content, headings } = await render(post);
         />
       )
     }
+
     <div class="markdown mt-10">
       <h1 transition:name={`${post.id} title`}>
         {post.data.title}
@@ -58,6 +60,10 @@ const { Content, headings } = await render(post);
       <!-- <ToC client:load headings={headings} /> -->
 
       <Content />
+    </div>
+
+    <div class="mt-8">
+      <Comments />
     </div>
   </div>
 </Root>
