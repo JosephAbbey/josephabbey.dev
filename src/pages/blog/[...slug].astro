@@ -5,6 +5,8 @@ import FormattedDate from "@/components/FormattedDate.astro";
 import { Image } from "astro:assets";
 import ToC from "@/components/ToC";
 import Comments from "@/components/Comments.astro";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -60,6 +62,27 @@ const { Content, headings } = await render(post);
       <!-- <ToC client:load headings={headings} /> -->
 
       <Content />
+    </div>
+
+    <div class="mt-4 pb-12">
+      {
+        post.data.previous && (
+          <a href={`/blog/${post.data.previous.id}`} data-astro-prefetch>
+            <Button className="float-start">
+              <ChevronLeft /> Previous
+            </Button>
+          </a>
+        )
+      }
+      {
+        post.data.next && (
+          <a href={`/blog/${post.data.next.id}`} data-astro-prefetch>
+            <Button className="float-end">
+              Next <ChevronRight />
+            </Button>
+          </a>
+        )
+      }
     </div>
 
     <div class="mt-8">
