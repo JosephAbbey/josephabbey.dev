@@ -67,7 +67,11 @@ const { Content, headings } = await render(post);
     <div class="mt-4 pb-12">
       {
         post.data.previous && (
-          <a href={`/blog/${post.data.previous.id}`} data-astro-prefetch>
+          <a
+            href={`/blog/${post.data.previous.id}`}
+            data-astro-prefetch
+            transition:animate="slide"
+          >
             <Button className="float-start">
               <ChevronLeft /> Previous
             </Button>
@@ -76,7 +80,11 @@ const { Content, headings } = await render(post);
       }
       {
         post.data.next && (
-          <a href={`/blog/${post.data.next.id}`} data-astro-prefetch>
+          <a
+            href={`/blog/${post.data.next.id}`}
+            data-astro-prefetch
+            transition:animate="slide"
+          >
             <Button className="float-end">
               Next <ChevronRight />
             </Button>
