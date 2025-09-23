@@ -130,7 +130,7 @@
     @apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
   }
   pre:has(> code) {
-    @apply my-6 rounded-lg border p-4;
+    @apply my-6 max-h-[90svh] overflow-y-scroll rounded-lg border p-4;
   }
   img {
     @apply mx-auto my-6 max-h-1/2 rounded-lg border;
@@ -186,6 +186,7 @@
       color: var(--color-primary);
       &:hover {
         text-decoration: underline;
+        opacity: 0.8;
       }
     }
   }
