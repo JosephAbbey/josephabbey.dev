@@ -31,7 +31,7 @@ const articles =
   title={`Joseph Abbey - ${project.data.title}`}
   description={project.data.description}
 >
-  <div class="markdown mx-auto mt-[20svh] max-w-3xl">
+  <div class="markdown mx-auto max-w-3xl">
     <h1 transition:name={`${project.id} title`}>
       {project.data.title}
     </h1>
@@ -76,7 +76,7 @@ const articles =
           <h4 class="my-0! text-lg font-bold">Articles</h4>
           <ul class="list-disc pl-5">
             {articles.map((article) => (
-              <li class="leading-0">
+              <li>
                 <span class="text-muted-foreground text-xs font-bold">
                   {article.data.source} -{" "}
                   <FormattedDate date={article.data.pubDate} />
@@ -86,7 +86,7 @@ const articles =
                   href={article.data.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-blue-600 hover:underline"
+                  class="text-pretty text-blue-600 hover:underline"
                 >
                   {article.data.title}
                 </a>
