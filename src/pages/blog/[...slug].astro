@@ -6,7 +6,8 @@ import { Image } from "astro:assets";
 import ToC from "@/components/ToC";
 import Comments from "@/components/Comments.astro";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLinkIcon } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -59,6 +60,24 @@ const { Content, headings } = await render(post);
         date={post.data.pubDate}
       />
 
+      <div class="mb-4 flex flex-row-reverse flex-wrap gap-2">
+        {
+          post.data.original && (
+            <a
+              href={post.data.original}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-md-no-style
+            >
+              <Badge variant="secondary">
+                Original Post
+                <ExternalLinkIcon />
+              </Badge>
+            </a>
+          )
+        }
+      </div>
+
       <!-- <ToC client:load headings={headings} /> -->
 
       <Content />
@@ -94,7 +113,24 @@ const { Content, headings } = await render(post);
     </div>
 
     <div class="mt-8">
-      <Comments />
+      {
+        post.data.original ? (
+          <p class="text-muted-foreground text-center text-sm">
+            To leave a comment, please visit the{" "}
+            <a
+              href={post.data.original}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-primary hover:underline"
+            >
+              original post
+              <ExternalLinkIcon className="inline h-4 w-4" />
+            </a>
+          </p>
+        ) : (
+          <Comments />
+        )
+      }
     </div>
   </div>
 </Root>

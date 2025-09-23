@@ -12,6 +12,9 @@ const blog = defineCollection({
       cover: image().optional(),
       next: reference("blog").optional(),
       previous: reference("blog").optional(),
+      original: z.string().url().optional(),
+      tags: z.array(z.string()).optional(),
+      project: reference("projects").optional(),
     }),
 });
 
