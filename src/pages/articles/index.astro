@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+import Root from "@/layouts/Root.astro";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+
+const articles = await getCollection("articles");
+---
+
+<Root
+  title="Articles - Joseph Abbey"
+  description="A list of all articles by Joseph Abbey"
+>
+  <section class="mx-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {
+      articles.map((article) => (
+        <a
+          href={article.data.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="h-max"
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>{article.data.title ?? article.id}</CardTitle>
+              <CardDescription>
+                {article.data.content?.slice(0, 100) ?? ""}...
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </a>
+      ))
+    }
+  </section>
+</Root>
