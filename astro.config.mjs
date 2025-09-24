@@ -1,8 +1,9 @@
 // @ts-check
 
+import { defineConfig, fontProviders } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-import { defineConfig, fontProviders } from "astro/config";
+import pagefind from "astro-pagefind";
 
 import tailwindcss from "@tailwindcss/vite";
 
@@ -61,10 +62,15 @@ export default defineConfig({
     ],
   },
 
-  integrations: [mdx(), sitemap(), react()],
+  integrations: [mdx(), sitemap(), react(), pagefind()],
 
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        external: ["/pagefind/pagefind.js"],
+      },
+    },
   },
 
   adapter: vercel(),
