@@ -33,7 +33,11 @@ interface Props {
       class="mb-4 flex items-center justify-between"
     >
       <NavBar client:load />
-      <SearchModalButton client:only="react" transition:persist />
+      {
+        import.meta.env.MODE === "production" && (
+          <SearchModalButton client:only="react" transition:persist />
+        )
+      }
     </header>
     <main transition:name="main">
       <slot />
