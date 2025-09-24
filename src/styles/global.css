@@ -133,24 +133,25 @@
   pre:has(> code) {
     @apply my-6 max-h-[90svh] overflow-y-scroll rounded-lg border p-4;
   }
-  img {
+  img:not([data-md-no-style]) {
     @apply mx-auto my-6 max-h-1/2 rounded-lg border;
   }
-  video {
+  video:not([data-md-no-style]) {
     @apply mx-auto my-6 max-h-1/2 rounded-lg border;
   }
 
-  table {
+  table:not([data-md-no-style]) {
     @apply my-6 w-full caption-bottom text-sm;
-  }
-  th {
-    @apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right;
-  }
-  td {
-    @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
-  }
-  tr {
-    @apply even:bg-muted m-0 border-t p-0;
+
+    th {
+      @apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right;
+    }
+    td {
+      @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
+    }
+    tr {
+      @apply even:bg-muted m-0 border-t p-0;
+    }
   }
 
   .katex-display {
