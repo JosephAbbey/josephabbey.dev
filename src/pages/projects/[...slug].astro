@@ -75,20 +75,28 @@ const articles =
           <h4 class="my-0! text-lg font-bold">Articles</h4>
           <ul class="list-disc pl-5">
             {articles.map((article) => (
-              <li>
-                <span class="text-muted-foreground text-xs font-bold">
-                  {article.data.source} -{" "}
-                  <FormattedDate date={article.data.pubDate} />
-                </span>
-                <br />
-                <a
-                  href={article.data.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-pretty text-blue-600 hover:underline"
-                >
-                  {article.data.title}
-                </a>
+              <li class="flex flex-row items-center justify-start">
+                <img
+                  data-md-no-style
+                  class="mr-2 h-8 w-8 rounded-sm"
+                  src={`https://s2.googleusercontent.com/s2/favicons?domain=${new URL(article.data.href).hostname}&sz=32`}
+                  alt={article.data.source}
+                />
+                <div>
+                  <span class="text-muted-foreground text-xs font-bold">
+                    {article.data.source} -{" "}
+                    <FormattedDate date={article.data.pubDate} />
+                  </span>
+                  <br />
+                  <a
+                    href={article.data.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-pretty text-blue-600 hover:underline"
+                  >
+                    {article.data.title}
+                  </a>
+                </div>
               </li>
             ))}
           </ul>
