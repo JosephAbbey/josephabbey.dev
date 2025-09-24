@@ -47,17 +47,25 @@ const { Content, headings } = await render(post);
           alt="Cover Image"
           class="w-full rounded-3xl object-cover"
           transition:name={`${post.id} image`}
+          data-pagefind-meta="image[src], image_alt[alt]"
         />
       )
     }
 
     <div class="markdown mt-10">
-      <h1 transition:name={`${post.id} title`}>
+      <h1
+        transition:name={`${post.id} title`}
+        data-pagefind-meta="title"
+        data-pagefind-filter={post.data.tags
+          ?.map((tag) => `tag:${tag}`)
+          .join(", ")}
+      >
         {post.data.title}
       </h1>
       <FormattedDate
         class="text-muted-foreground text-sm"
         date={post.data.pubDate}
+        data-pagefind-meta={`date:${post.data.pubDate.toISOString()}`}
       />
 
       <div class="mb-4 flex flex-row-reverse flex-wrap gap-2">
@@ -80,7 +88,9 @@ const { Content, headings } = await render(post);
 
       <!-- <ToC client:load headings={headings} /> -->
 
-      <Content />
+      <div data-pagefind-body>
+        <Content />
+      </div>
     </div>
 
     <div class="mt-4 pb-12">

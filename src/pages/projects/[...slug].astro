@@ -32,7 +32,7 @@ const articles =
   description={project.data.description}
 >
   <div class="markdown mx-auto max-w-3xl">
-    <h1 transition:name={`${project.id} title`}>
+    <h1 transition:name={`${project.id} title`} data-pagefind-meta="title">
       {project.data.title}
     </h1>
 
@@ -98,12 +98,14 @@ const articles =
 
     <!-- <ToC client:load headings={headings} /> -->
 
-    {
-      project.data.pdf !== undefined ? (
-        <iframe src={project.data.pdf} class="mt-10 h-[80vh] w-full" />
-      ) : (
-        <Content />
-      )
-    }
+    <div data-pagefind-body>
+      {
+        project.data.pdf !== undefined ? (
+          <iframe src={project.data.pdf} class="mt-10 h-[80vh] w-full" />
+        ) : (
+          <Content />
+        )
+      }
+    </div>
   </div>
 </Root>
