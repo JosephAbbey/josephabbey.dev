@@ -86,7 +86,7 @@ export function SearchModal({
             <a
               href={result.url}
               className="hover:bg-muted block rounded p-2"
-              target={result.url.startsWith("http") ? "_blank" : "_self"}
+              target="_blank"
               rel={
                 result.url.startsWith("http")
                   ? "noopener noreferrer"
