@@ -8,7 +8,9 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 
-const articles = await getCollection("articles");
+const articles = (await getCollection("articles")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <Root
