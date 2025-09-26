@@ -1,7 +1,7 @@
 ---
 title: Home Assistant Bluetooth Battery Levels (Android)
 description: A guide to getting battery levels of Bluetooth devices in Home Assistant on Android.
-pubDate: 2025-12-05
+pubDate: 2023-12-05
 tags:
   - homeassistant
   - android
