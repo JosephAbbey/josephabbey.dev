@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Image } from "astro:assets";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -32,10 +33,12 @@ const posts = (await getCollection("blog")).sort(
             <Card>
               {post.data.cover && (
                 <CardContent>
-                  <img
+                  <Image
+                    width="400"
+                    height="200"
                     transition:name={`${post.id} image`}
                     class="rounded-lg"
-                    src={post.data.cover?.src}
+                    src={post.data.cover}
                     alt={post.data.title}
                   />
                 </CardContent>
