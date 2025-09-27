@@ -158,12 +158,6 @@ I created my live indicator using ESPHome on an [M5Stack-Atom-Echo](https://docs
 
 This setup has slightly improved our costs. I think that this improvement is a product of improved ergonomics and the feeling of guilt felt when you see the battery discharging quickly or you get beeped by the battery overload warning.
 
-![Battery Level on LEDs GIF](TODO)
-
-![Solar Level on LEDs](TODO)
-
-![Battery Overload Warning GIF](TODO)
-
 Here is my ESPHome configuration:
 
 ```yaml
@@ -580,13 +574,6 @@ Here are the Home-Assistant automations:
       sequence:
       - variables:
           effect: Battery Level Exporting
-    - conditions:
-      - condition: state
-        entity_id: predbat.status
-        state: Hold charging
-      sequence:
-      - variables:
-          effect: Battery Level
     - conditions:
       - condition: state
         entity_id: predbat.status
