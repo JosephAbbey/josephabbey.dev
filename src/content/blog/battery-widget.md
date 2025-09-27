@@ -7,7 +7,7 @@ tags:
   - android
   - widget
 original: https://community.home-assistant.io/t/battery-widget/661545
-cover: ../../assets/blog/battery-widget.png
+cover: ../../assets/blog/battery-widget/battery-widget.png
 ---
 
 I have been working on a battery widget for my home screen to replace the Pixel battery widget, the UI is not great because it is rendered as ASCII art but I quite like it.
