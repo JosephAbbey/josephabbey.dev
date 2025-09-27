@@ -4,7 +4,7 @@ description: |-
   The cards that I use for my Predbat dashboard in Home Assistant.
 tags:
   - homeassistant
-pubDate: 2025-09-25
+pubDate: 2025-09-26
 previous: predbat-for-smart-battery-management
 next: programming-humans-to-use-cheap-energy
 ---

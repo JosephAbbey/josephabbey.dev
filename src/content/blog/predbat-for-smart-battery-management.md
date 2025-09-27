@@ -4,7 +4,7 @@ description: |-
   What I'm learning about using Predbat to optimize my home battery system with Home Assistant.
 tags:
   - homeassistant
-pubDate: 2025-09-26
+pubDate: 2025-09-25
 next: predbat-dashboard
 ---
 
