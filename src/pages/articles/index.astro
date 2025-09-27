@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { Masonry } from "astro-masonry";
 
 const articles = (await getCollection("articles")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -17,25 +18,37 @@ const articles = (await getCollection("articles")).sort(
   title="Articles - Joseph Abbey"
   description="A list of all articles by Joseph Abbey"
 >
-  <section class="mx-4 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-    {
-      articles.map((article) => (
-        <a
-          href={article.data.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="h-max"
-        >
-          <Card>
-            <CardHeader>
-              <CardTitle>{article.data.title ?? article.id}</CardTitle>
-              <CardDescription>
-                {article.data.content?.slice(0, 100) ?? ""}...
-              </CardDescription>
-            </CardHeader>
-          </Card>
-        </a>
-      ))
-    }
+  <section class="mx-4">
+    <Masonry
+      breakpointCols={{
+        default: 3, // lg
+        1024: 2, // md
+        640: 1, // sm
+      }}
+      class="flex gap-4 px-4"
+      columnClass="flex flex-col gap-4"
+    >
+      {
+        articles.map((article) => (
+          <a
+            href={article.data.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="h-max"
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-pretty">
+                  {article.data.title ?? article.id}
+                </CardTitle>
+                <CardDescription className="overflow-ellipsis line-clamp-3 max-h-[3.75rem] overflow-hidden">
+                  {article.data.content}
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </a>
+        ))
+      }
+    </Masonry>
   </section>
 </Root>

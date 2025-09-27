@@ -35,6 +35,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "astro": "^5.13.7",
+    "astro-masonry": "^1.2.2",
     "astro-pagefind": "^1.8.5",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
