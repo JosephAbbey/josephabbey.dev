@@ -127,6 +127,9 @@
   ul {
     @apply my-6 ml-6 list-disc [&>li]:mt-2;
   }
+  ol {
+    @apply my-6 ml-6 list-decimal [&>li]:mt-2;
+  }
   :not(pre) > code {
     @apply bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
   }
@@ -150,7 +153,10 @@
       @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
     }
     tr {
-      @apply even:bg-muted m-0 border-t p-0;
+      @apply m-0 border-t p-0;
+    }
+    tbody:has(> :nth-child(3)) tr:nth-child(odd) {
+      @apply bg-muted;
     }
   }
 
