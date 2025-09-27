@@ -102,7 +102,7 @@ export function SearchModal({
               )}
               <h1 className="font-semibold">{result.title}</h1>
               <div
-                className="text-muted-foreground text-sm"
+                className="text-muted-foreground [&_mark]:bg-primary [&_mark]:text-primary-foreground text-sm [&_mark]:px-1"
                 // Handle the mark element
                 dangerouslySetInnerHTML={{ __html: result.excerpt }}
               ></div>
